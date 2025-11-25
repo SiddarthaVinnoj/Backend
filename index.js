@@ -10,6 +10,10 @@ app.use(express.json());
 dotenv.config();
 const PORT = process.env.PORT || 3001;
 const URI = process.env.MongoDBURI;
+app.use(cors({
+    origin: 'https://books-topaz-chi.vercel.app/', // frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 //connection to db
 const connect = async () => {
